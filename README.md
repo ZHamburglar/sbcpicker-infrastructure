@@ -17,5 +17,5 @@ This will allow you to run `docker-compose up` and start the project.
 
 | Repo Name              | URL                                                    | Info             |
 |------------------------|--------------------------------------------------------|------------------|
-| SBC Picker API | https://github.com/ZHamburglar/magic-card-tracker-nest | Main Backend API |
+| SBC Picker API | https://github.com/ZHamburglar/sbcpicker-nest | Main Backend API |
 |                        |                                                        |                  |

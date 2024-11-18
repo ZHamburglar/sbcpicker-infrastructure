@@ -30,6 +30,6 @@ services:
     command: sh /infra/start-magic-api.sh
     volumes:
       - .:/infra
-      - ./codebase/sbc-picker-nest:/kb
+      - ./codebase/sbcpicker-nest:/kb
     depends_on:
       - db
