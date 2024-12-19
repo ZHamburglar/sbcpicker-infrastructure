@@ -19,3 +19,14 @@ This will allow you to run `docker-compose up` and start the project.
 |------------------------|--------------------------------------------------------|------------------|
 | SBC Picker API | https://github.com/ZHamburglar/sbcpicker-nest | Main Backend API |
 |                        |                                                        |                  |
+
+
+
+## DBeaver Potential Fix
+1. Right-click your connection, choose "Edit Connection"
+
+2. On the "Connection settings" screen (main screen), click on "Edit Driver Settings"
+
+3. Click on "Driver properties"
+
+4. Set these two properties: "allowPublicKeyRetrieval" to true and "useSSL" to false
