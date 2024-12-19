@@ -1,4 +1,4 @@
-version: "3.8"
+version: "3.9"
 services:
   db:
     image: mysql:8.4
@@ -6,7 +6,8 @@ services:
     restart: on-failure
     ports:
       - '3306:3306'
-    environment: 
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: "no"
       MYSQL_HOST: localhost
       MYSQL_ROOT_PASSWORD: password1
       MYSQL_DATABASE: singlebcdb
@@ -14,6 +15,11 @@ services:
       MYSQL_PASSWORD: password1
     volumes: 
       - ./init-local-singlebc-db.sql:/docker-entrypoint-initdb.d/init.sql
+    healthcheck:
+      test: ["CMD", 'mysqladmin', 'ping', '-h', 'localhost', '-u', '$$MYSQL_USER', '-p$$MYSQL_ROOT_PASSWORD' ]
+      start_period: 5s
+      timeout: 10s
+      retries: 20
 
   sbcpicker-api:
     image: node:23-alpine
@@ -32,4 +38,5 @@ services:
       - .:/infra
       - ./codebase/sbcpicker-nest:/kb
     depends_on:
-      - db
+      db:
+        condition: service_healthy
