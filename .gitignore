@@ -1,3 +1,5 @@
 codebase/*
 !codebase/.gitkeep
 node_modules
+cache
+db
